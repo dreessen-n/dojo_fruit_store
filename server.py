@@ -15,4 +15,4 @@ def fruits():
     return render_template("fruits.html")
 
 if __name__=="__main__":   
-    app.run(debug=True)    
+    app.run(host='localhost', port=5001, debug=True)
