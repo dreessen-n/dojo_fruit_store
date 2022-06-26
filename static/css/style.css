@@ -4,3 +4,8 @@ img {
     background-color: white;
     margin: 5px;
 }
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}

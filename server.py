@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, redirect
+from datetime import datetime
+
 app = Flask(__name__)  
 
 @app.route('/')         
@@ -7,8 +9,12 @@ def index():
 
 @app.route('/checkout', methods=['POST'])         
 def checkout():
+    count = int(request.form['strawberry']) + int(request.form['raspberry']) + int(request.form['apple'])
+    now = datetime.now()
+    timestamp = now.strftime("%m/%d/%Y %H:%M:%S")
+    print(f"Charging {request.form['first_name']} for {count} fruits.")
     print(request.form)
-    return render_template("checkout.html")
+    return render_template("checkout.html", count=count, timestamp=timestamp)
 
 @app.route('/fruits')         
 def fruits():
